@@ -1,3 +1,3 @@
 package hr.ferit.brunozoric.taskie.model.response
 
-data class RegisterReponse(val message: String?= "")
+data class RegisterResponse(val message: String?= "")

@@ -6,7 +6,7 @@ import hr.ferit.brunozoric.taskie.common.RESPONSE_OK
 import hr.ferit.brunozoric.taskie.common.displayToast
 import hr.ferit.brunozoric.taskie.common.onClick
 import hr.ferit.brunozoric.taskie.model.request.UserDataRequest
-import hr.ferit.brunozoric.taskie.model.response.RegisterReponse
+import hr.ferit.brunozoric.taskie.model.response.RegisterResponse
 import hr.ferit.brunozoric.taskie.networking.BackendFactory
 import hr.ferit.brunozoric.taskie.ui.activities.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_register.*
@@ -35,12 +35,12 @@ class RegisterActivity : BaseActivity() {
         )
     }
 
-    private fun registerCallback(): Callback<RegisterReponse> = object : Callback<RegisterReponse> {
-        override fun onFailure(call: Call<RegisterReponse>?, t: Throwable?) {
+    private fun registerCallback(): Callback<RegisterResponse> = object : Callback<RegisterResponse> {
+        override fun onFailure(call: Call<RegisterResponse>?, t: Throwable?) {
             //TODO : handle default error 400 , 404, 500
         }
 
-        override fun onResponse(call: Call<RegisterReponse>?, response: Response<RegisterReponse>) {
+        override fun onResponse(call: Call<RegisterResponse>?, response: Response<RegisterResponse>) {
             if (response.isSuccessful) {
                 when (response.code()) {
                     RESPONSE_OK -> handleOkResponse()
