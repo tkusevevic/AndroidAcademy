@@ -34,7 +34,6 @@ object BackendFactory {
 
     private val client: Retrofit? = if (retrofit == null) createRetrofit() else retrofit
 
-
     private fun createRetrofit(): Retrofit? {
         retrofit = Retrofit.Builder()
             .client(httpClient)
@@ -44,11 +43,7 @@ object BackendFactory {
         return retrofit
     }
 
-    private fun getService(): TaskieApiService {
-        return this.client!!.create(TaskieApiService::class.java)
-    }
+    private fun getService(): TaskieApiService = this.client!!.create(TaskieApiService::class.java)
 
-    fun getTaskieInteractor(): TaskieInteractor {
-        return TaskieInteractorImpl(getService())
-    }
+    fun getTaskieInteractor(): TaskieInteractor = TaskieInteractorImpl(getService())
 }

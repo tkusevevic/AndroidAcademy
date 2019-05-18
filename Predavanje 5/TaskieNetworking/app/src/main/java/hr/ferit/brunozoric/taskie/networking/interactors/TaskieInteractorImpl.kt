@@ -11,8 +11,8 @@ import retrofit2.Callback
 
 class TaskieInteractorImpl(private val apiService: TaskieApiService) : TaskieInteractor {
 
-    override fun getTasks(taskieReponseCallback: Callback<GetTasksResponse>) {
-        apiService.getTasks().enqueue(taskieReponseCallback)
+    override fun getTasks(taskieResponseCallback: Callback<GetTasksResponse>) {
+        apiService.getTasks().enqueue(taskieResponseCallback)
     }
 
     override fun register(request: UserDataRequest, registerCallback: Callback<RegisterResponse>) {
@@ -26,5 +26,4 @@ class TaskieInteractorImpl(private val apiService: TaskieApiService) : TaskieInt
     override fun save(request: AddTaskRequest, saveCallback: Callback<BackendTask>) {
         apiService.save(request).enqueue(saveCallback)
     }
-
 }

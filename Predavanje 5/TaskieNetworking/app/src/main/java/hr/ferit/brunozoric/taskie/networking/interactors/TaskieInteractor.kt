@@ -10,7 +10,7 @@ import retrofit2.Callback
 
 interface TaskieInteractor {
 
-    fun getTasks(taskieReponseCallback: Callback<GetTasksResponse>)
+    fun getTasks(taskieResponseCallback: Callback<GetTasksResponse>)
 
     fun register(request: UserDataRequest, registerCallback: Callback<RegisterResponse>)
 
