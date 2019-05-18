@@ -44,7 +44,6 @@ class TasksFragment : BaseFragment(), AddTaskFragmentDialog.TaskAddedListener {
         noData.visible()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         tasksRecyclerView.adapter = adapter
-
         getAllTasks()
     }
 

@@ -6,7 +6,7 @@ import hr.ferit.brunozoric.taskie.common.RESPONSE_OK
 import hr.ferit.brunozoric.taskie.common.displayToast
 import hr.ferit.brunozoric.taskie.common.onClick
 import hr.ferit.brunozoric.taskie.model.request.UserDataRequest
-import hr.ferit.brunozoric.taskie.model.response.LoginReponse
+import hr.ferit.brunozoric.taskie.model.response.LoginResponse
 import hr.ferit.brunozoric.taskie.networking.BackendFactory
 import hr.ferit.brunozoric.taskie.prefs.provideSharedPrefs
 import hr.ferit.brunozoric.taskie.ui.activities.base.BaseActivity
@@ -34,12 +34,12 @@ class LoginActivity : BaseActivity() {
         )
     }
 
-    private fun loginCallback(): Callback<LoginReponse> = object : Callback<LoginReponse> {
-        override fun onFailure(call: Call<LoginReponse>?, t: Throwable?) {
+    private fun loginCallback(): Callback<LoginResponse> = object : Callback<LoginResponse> {
+        override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
             //TODO : handle default error 400 , 404, 500
         }
 
-        override fun onResponse(call: Call<LoginReponse>?, response: Response<LoginReponse>) {
+        override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>) {
             if (response.isSuccessful) {
                 when (response.code()) {
                     RESPONSE_OK -> handleOkResponse(response.body())
@@ -55,7 +55,7 @@ class LoginActivity : BaseActivity() {
         finish()
     }
 
-    private fun handleOkResponse(loginReponse: LoginReponse?) {
+    private fun handleOkResponse(loginReponse: LoginResponse?) {
         this.displayToast("Successfully logged in!")
         loginReponse?.token?.let { prefs.storeUserToken(it) }
         val intent = Intent(this, MainActivity::class.java)

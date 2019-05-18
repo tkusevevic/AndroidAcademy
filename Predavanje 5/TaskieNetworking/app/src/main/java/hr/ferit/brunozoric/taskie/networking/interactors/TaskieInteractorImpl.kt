@@ -4,7 +4,7 @@ import hr.ferit.brunozoric.taskie.model.BackendTask
 import hr.ferit.brunozoric.taskie.model.request.AddTaskRequest
 import hr.ferit.brunozoric.taskie.model.request.UserDataRequest
 import hr.ferit.brunozoric.taskie.model.response.GetTasksResponse
-import hr.ferit.brunozoric.taskie.model.response.LoginReponse
+import hr.ferit.brunozoric.taskie.model.response.LoginResponse
 import hr.ferit.brunozoric.taskie.model.response.RegisterReponse
 import hr.ferit.brunozoric.taskie.networking.TaskieApiService
 import retrofit2.Callback
@@ -19,7 +19,7 @@ class TaskieInteractorImpl(private val apiService: TaskieApiService) : TaskieInt
         apiService.register(request).enqueue(registerCallback)
     }
 
-    override fun login(request: UserDataRequest, loginCallback: Callback<LoginReponse>) {
+    override fun login(request: UserDataRequest, loginCallback: Callback<LoginResponse>) {
         apiService.login(request).enqueue(loginCallback)
     }
 

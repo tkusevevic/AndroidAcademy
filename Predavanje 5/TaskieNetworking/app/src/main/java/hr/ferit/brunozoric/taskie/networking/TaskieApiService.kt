@@ -4,7 +4,7 @@ import hr.ferit.brunozoric.taskie.model.BackendTask
 import hr.ferit.brunozoric.taskie.model.request.AddTaskRequest
 import hr.ferit.brunozoric.taskie.model.request.UserDataRequest
 import hr.ferit.brunozoric.taskie.model.response.GetTasksResponse
-import hr.ferit.brunozoric.taskie.model.response.LoginReponse
+import hr.ferit.brunozoric.taskie.model.response.LoginResponse
 import hr.ferit.brunozoric.taskie.model.response.RegisterReponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -18,7 +18,7 @@ interface TaskieApiService {
     fun register(@Body userData: UserDataRequest): Call<RegisterReponse>
 
     @POST("/api/login")
-    fun login(@Body userData: UserDataRequest): Call<LoginReponse>
+    fun login(@Body userData: UserDataRequest): Call<LoginResponse>
 
     @GET("/api/note")
     fun getTasks(): Call<GetTasksResponse>
