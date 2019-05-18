@@ -95,7 +95,7 @@ class TasksFragment : BaseFragment(), AddTaskFragmentDialog.TaskAddedListener {
     private fun handleOkResponse(response: Response<GetTasksResponse>) {
         response.body()?.notes?.run {
             checkList(this)
-            onTaskiesReceived(this)
+            adapter.setData(this)
         }
     }
 
